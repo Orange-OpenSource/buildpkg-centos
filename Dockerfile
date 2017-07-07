@@ -1,4 +1,4 @@
-FROM centos:latest
+FROM centos:6
 MAINTAINER Michel Decima <michel.decima@orange.com>
 
 RUN yum install -y \
