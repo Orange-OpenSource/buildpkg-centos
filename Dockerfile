@@ -8,3 +8,9 @@ RUN yum install -y \
         fakeroot sudo \
         curl gnupg \
     && yum clean all
+
+COPY yum-add-gitlab /usr/bin/
+RUN yum-add-gitlab orange-opensource/gitlab-buildpkg-tools \
+     && yum install -y gitlab-buildpkg-tools \
+     && yum clean all 
+
