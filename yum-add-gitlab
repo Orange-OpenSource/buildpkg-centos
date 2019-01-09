@@ -38,7 +38,7 @@ RELEASE_NAME=$(egrep -o '[0-9.]{1,}' /etc/system-release | cut -d. -f1)
 
 ppa_yum_print() {		# project_namespace project_name
     local repo_name="$1-$2"
-    local ppa_url="http://$1.$PPA_HOST/$2"
+    local ppa_url="https://$1.$PPA_HOST/$2"
     cat << EOF
 [$repo_name]
 name=Gitlab $repo_name - $RELEASE_NAME - \$basearch
@@ -64,7 +64,7 @@ EOF
 
 ppa_yum_install() {                 # project_namespace project_name
     local yum_repo="/etc/yum.repos.d/gitlab-$1-$2.repo"
-    local key_url="http://$1.$PPA_HOST/$2/GPG_PUBLIC_KEY"
+    local key_url="https://$1.$PPA_HOST/$2/GPG_PUBLIC_KEY"
     local key_file="/etc/pki/rpm-gpg/gitlab-$1-$2.gpgkey"
     curl -fLsS -o $key_file $key_url \
         && rpm --import $key_file \
