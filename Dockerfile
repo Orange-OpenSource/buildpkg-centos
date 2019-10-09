@@ -1,4 +1,4 @@
-FROM centos:latest
+FROM centos:8
 MAINTAINER Michel Decima <michel.decima@orange.com>
 
 RUN yum install -y \
@@ -10,7 +10,7 @@ RUN yum install -y \
     && yum clean all
 
 COPY yum-add-gitlab /usr/bin/
-RUN yum-add-gitlab Orange-OpenSource/gitlab-buildpkg-tools \
-     && yum install -y gitlab-buildpkg-tools \
-     && yum clean all 
-
+#RUN yum-add-gitlab Orange-OpenSource/gitlab-buildpkg-tools \
+#     && yum install -y gitlab-buildpkg-tools \
+#     && yum clean all 
+#
